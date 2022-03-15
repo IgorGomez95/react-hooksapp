@@ -4,6 +4,10 @@ export const useForm = ( initialState = {} ) => {
     // Falta lógica de validación y campos obligatorios
     const [values, setValues] = useState(initialState);
 
+    const reset = () => {
+        setValues(initialState);
+    }
+
     const handleInputChange = ( {target} ) => {
         setValues({
             ...values,
@@ -11,5 +15,5 @@ export const useForm = ( initialState = {} ) => {
         });
     }
 
-    return [values, handleInputChange];
+    return [values, handleInputChange, reset];
 };
